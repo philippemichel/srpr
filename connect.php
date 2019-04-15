@@ -5,8 +5,7 @@ session_start();
 //if ($_SESSION['connect']==0){header("Location:index.php");}
 try
 {
-$base=new PDO('mysql:host=localhost;dbname=srpr','phpmyadmin','polii'
-,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+$base=new PDO('mysql:host=localhost;dbname=srpr','root','polii',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 }
 catch (Exception $e)
 {

@@ -13,6 +13,7 @@ saut();
 ndate("datenaiss",("Date de naissance"));
 saut();
 liste("csp","Catégorie socio-professionnelle","csp",$base);
+liste("etudes","Niveau d'étude","etudes",$base);
 //
 finf();
 finq();

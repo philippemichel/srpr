@@ -1,5 +1,5 @@
 <?php
-$titre ="Statut à J28";
+$titre ="Statut à J28 après l'admission";
 $form=1;
 include('debut.php');
 //
@@ -27,11 +27,24 @@ nombre("j28.drs","DRS","","0","29","");
 nombre("j28.gose","GOSE","","1","","");
 //nombre("j28.barthel","BARTHEL","","0","100","");
 sautl();
-nombre("j28.asia.mot","ASIA - Plus mauvais score moteur","","0","100","");
-nombre("j28.asia.ssb","ASIA - Plus mauvais score sensitif","","0","112","");
+nombre("j28.asia.mot","ASIA - Meilleur niveau non déficitaire moteur","","0","100","");
+nombre("j28.asia.ssb","ASIA - Meilleur niveau non déficitaire sensitif","","0","112","");
 liste("j28.asia.anom","ASIA - Échelle d'anomalie","abcde",$base);
 sautl();
 nombre("j28.poids","Poids","Kg","15","300","");
+sautl();
+ouinon("adm_esc","Escarre");
+
+echo "<h4>Escarre 1</h4>";
+ndate("adm_date_esc","Si oui : Date");
+liste("adm_esc_stade","Stade","escarre",$base);
+liste("adm_esc_loc","Localisation","escarreloc",$base);
+liste("adm_esc_tt","traitement","escarrett",$base);
+echo "<h4>Escarre 2</h4>";
+ndate("adm_date_esc","Si oui : Date");
+liste("adm_esc_stade","Stade","escarre",$base);
+liste("adm_esc_loc","Localisation","escarreloc",$base);
+liste("adm_esc_tt","traitement","escarrett",$base);
 //
 finf();
 finq();

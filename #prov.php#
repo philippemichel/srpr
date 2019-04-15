@@ -1,0 +1,208 @@
+<?php
+//ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) .'/toperreur'));
+//session_start();
+//if ($_SESSION['connect']==0){header("Location:index.php");}
+//include('connect.php');
+include('macro.php');
+?>
+<!DOCTYPE HTML PUBLIC "HTML">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="style.css"/>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<title>SRPR</title>
+</head>
+<body>
+<header>
+<h1>ADMISSION</h1>
+<h4></h4>
+</header>
+<p> </P>
+<form action="index2.php" method="POST">
+
+<FIELDSET><LEGEND>Données Patient</LEGEND>
+<P>
+<?php
+/*
+echo "<FIELDSET class = 'ptfield'><LEGEND>Accès vasculaire</LEGEND><P>";
+ouinon("adm.ac.vasc1","Accès vasculaire");
+echo "<P>";
+liste("adm.ac.vasc2","Si oui : type","ascvasc",$base);
+echo "</p></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Sonde naso-gastrique</LEGEND><P>";
+ouinon("adm.sg","Sonde naso-gastrique");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Gastrostomie</LEGEND><P>";
+ouinon("adm.gstomie","Gastrostomie");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Sonde urinaire</LEGEND><P>";
+ouinon("adm.su","Sonde urinaire");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>KT sus-pubien</LEGEND><P>";
+ouinon("adm.ksp","KT sus-pubien");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Trachéotomie</LEGEND><P>";
+ouinon("adm.trach","Trachéotomie");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Ventilation mécanique</LEGEND><P>";
+ouinon("adm.vm","Ventilation mécanique");
+liste("adm.vm.cont","Si oui : Durée","continu",$base);
+nombre("adm.vm.h","Si oui : Durée quotidienne","Heures/jour","0","24","Si discontinue");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield' ><LEGEND>VNI</LEGEND><P>";
+ouinon("adm.vni","VNI");
+liste("adm.vni.cont","Si oui : Durée","continu",$base);
+nombre("adm.vni.h","Si oui :Durée quotidienne", "Heures/jour","0","24","Si discontinue");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Escarres</LEGEND><P>";
+ouinon("adm.esc","Escarre");
+fdate("adm.date.esc","Si oui : Date");
+liste("adm.esc.stade","Si oui : Stade","escarre",$base);
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Stomie digestive</LEGEND>";
+ouinon("adm.stomie","Stomie digestive");
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>BMR acquis</LEGEND><P>";
+ouinon("adm.bmr","BMR acquis");
+liste("adm.bmr.loc","Si oui : Localisation","bmrloc",$base);
+liste("adm.bmr.germe","Si oui : Germe","bmrgerme",$base);
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>BHR acquis</LEGEND><P>";
+ouinon("adm.bhr","BHR acquis");
+liste("adm.bhr.contact","Si oui : Type d'infection","bhr",$base);
+echo "</P></fieldset>";
+//
+echo "<FIELDSET class = 'ptfield'><LEGEND>Clostridium</LEGEND><P>";
+ouinon("adm.clostridium","Clostridium");
+echo "</P></fieldset>";
+//
+*/
+?>
+//
+<FIELDSET class = 'ptfield'>
+<?php
+echo "<P>";
+nombre("adm.igs2","IGS2","","0","150","");
+nombre("adm.sofa","SOFA","","0","150","");
+nombre("adm.poids","Poids","Kg","1","300","");
+nombre("taille.","Taille","cm","0","222","");
+nombre("adm.prealb","Pré-albumine","g/L","1","50","");
+nombre("adm.alb","Albumine","g/L","1","50","");
+nombre("adm.uree","Urée","mmol/L","0","100","");
+nombre("adm.creat","Créatinine","µmol/L","0","2000","");
+echo "</P></FIELDSET>";
+echo "<FIELDSET class = 'ptfield'><LEGEND>Défaillance d'organe</LEGEND><p>";
+ouinon("adm.defaillance","Défaillance d'organe");
+boxs("adm.hemod","Si oui : Hémodynamique");
+boxs("adm.rein","Rénale");
+boxs("adm.neuro","Neurologique");
+boxs("adm.hemato","Hématologique");
+boxs("adm.respi","Respiratoire");
+boxs("adm.autre","Autre");
+?>
+</P>
+</FIELDSET>
+
+<FIELDSET class = 'ptfield'><LEGEND>Scores neurologiques</LEGEND>
+<P>
+<?php
+nombre("adm.csg","Score de Glasgow","","3","15","");
+nombre("adm.crsr","CRS R","","0","23","");
+nombre("adm.goat","GOAT","","0","100","");
+nombre("adm.mrcd","MRC droit","","0","60","");
+nombre("adm.mrcg","MRC gauche","","0","60","");
+nombre("adm.whim","WHIM","","0","","");
+nombre("adm.mif","MIF","","0","7","");
+nombre("adm.drs","DRS","","0","29","");
+nombre("adm.gose","GOSE","","1","","");
+//nombre("adm.asia","ASIA","","0","","");
+?>
+</p>
+</FIELDSET>
+
+<FIELDSET class = 'ptfield'><LEGEND>ECG</LEGEND>
+<P>
+<?php
+boxs("adm.normal","ECG Normal");
+boxs("adm.tdrvent","TdR ventriculaires");
+boxs("adm.tdrsupra","TdR supra-ventriculaires");
+boxs("adm.conduction","Troubles de la conduction");
+boxs("adm.repol","Troubles de la repolarisation");
+boxs("adm.ische","Séquelles ischémiques");
+?>
+</P>
+</FIELDSET>
+//
+<FIELDSET class = 'ptfield'><LEGEND>Échocardiographie</LEGEND>
+<p>
+<?php
+ouinon("adm.echo","Échocardiographie");
+fdate("adm.date.echo","Date de l'échocardiographie");
+?>
+</p>
+</FIELDSET>
+<FIELDSET class = 'ptfield'><LEGEND>Alimentation</LEGEND>
+<p>
+
+<?php
+ouinon("adm.deglu","Troubles de la déglutition");
+liste("adm.alim","Voie de l'alimentation","alim",$base);
+?>
+</p>
+</FIELDSET>
+//
+<FIELDSET class = 'ptfield'><LEGEND>Diagnostic étiologique</LEGEND>
+<P>
+<?php
+liste("adm.diag","Diagnostic étiologique","etiologie",$base);
+?>
+</P>
+</FIELDSET>
+//
+<FIELDSET class = 'ptfield'><LEGEND>Clinique</LEGEND>
+<p>
+<?php
+ouinon("adm.cognitif","Troubles cognitifs");
+ouinon("adm.sommeil","Troubles du sommeil");
+ouinon("adm.agitation","Agitation");
+liste("adm.visuel","Troubles visuels","visuel",$base);
+liste("adm.hemip","Hémiplégie","plegie",$base);
+liste("adm.parap","Paraplégie","plegie",$base);
+liste("adm.tetrap","Tétraplégie","plegie",$base);
+?>
+<LABEL for = "retract">Rétractions tendineuses</label>
+<textarea name="retract" rows="5" cols="60">Rétractions tendineuses</textarea>
+</P>
+</FIELDSET>
+
+</FIELDSET>
+
+//
+<p class="fin"> <input type="SUBMIT" value="Validation"></p>
+
+  </form>
+  </div>
+</article>
+  </section>
+<footer>
+<address>Dr Philippe MICHEL - SRPR<br/>
+<!-- hhmts start -->Last modified: Wed Nov 27 13:56:13 CET 2013 <!-- -->
+<!--hhmts end -->
+</address>
+</footer>
+</body> </html>

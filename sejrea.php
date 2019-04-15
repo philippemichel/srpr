@@ -9,7 +9,7 @@ $donnees = $reponse->fetch();
 echo "<SECTION>";
 debutform("postsejrea.php");
 //
-liste("type_reaadm","Type de réanimation à l'admission","reanimations",$base);
+liste("type_reaadm","Type de réanimation initiale","reanimations",$base);
 ndate("dateadmrea","Date d'admission en réanimation");
 saut();
 nombre("csgrea","Score de Glasgow à l'admission en réanimation","",3,15,"","");
