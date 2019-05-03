@@ -1,7 +1,7 @@
 <?php
 ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) .'/toperreur'));
 session_start();
-//if ($_SESSION['connect']==0){header("Location:index.php");}
+if ($_SESSION['connect']==0){header("Location:index.php");}
 include('connect.php');
 include('macro.php');
 $codepat = " ";

@@ -36,24 +36,44 @@ FIQ;
 //
 // ouinon
 //
-function ouinon($nom,$titre,$dd=""){
-echo <<<ON1
+function ouinon($nom,$titre,$donnees){
+    $dd = $donnees[$nom];
+    echo <<<ONO
     <LABEL for="$nom">$titre</LABEL> &nbsp;
-        <INPUT TYPE="radio" name="$nom" id="$nom" value="oui"
-ON1;
-    if ($dd == "oui"): echo "checked"; endif;
+    <INPUT TYPE="radio" name="$nom" id="$nom" value="oui"
+ONO;
+if ($dd == "oui"): echo "checked"; endif;
 echo <<<ON2
-    >OUI &nbsp;
-    <INPUT TYPE="radio" name="$nom" id="$nom" value="non"
+>OUI &nbsp;
+<INPUT TYPE="radio" name="$nom" id="$nom" value="non"
 ON2;
-    if ($dd == "non"): echo "checked";  endif;
+if ($dd == "non"): echo "checked";  endif;
+echo ">NON </BR>"; 
+}
+//
+// oui/non avevc "non" préselectionné
+//
+function ouinonnon($nom,$titre,$donnees){
+    $dd = $donnees[$nom];
+    if ($dd == ""): $dd ="non"; endif;
+    echo <<<ONO
+    <LABEL for="$nom">$titre</LABEL> &nbsp;
+    <INPUT TYPE="radio" name="$nom" id="$nom" value="oui"
+ONO;
+if ($dd == "oui"): echo "checked"; endif;
+echo <<<ON2
+>OUI &nbsp;
+<INPUT TYPE="radio" name="$nom" id="$nom" value="non"
+ON2;
+if ($dd == "non"): echo "checked";  endif;
 echo ">NON </BR>"; 
 }
 //
 // liste
 //
-function liste($nom,$titre,$source,PDO $base,$dd=""){
-echo <<<LI1
+function liste($nom,$titre,$source,PDO $base,$donnees){
+    $dd = $donnees[$nom];
+    echo <<<LI1
     <LABEL for ="$nom">$titre</LABEL>
     <select name="$nom" id="$nom" >
 LI1;
@@ -82,19 +102,21 @@ function sautl(){
 //
 // nombres
 //
-function nombre($nom,$titre,$unit,$min,$max,$bulle,$dd=""){
-echo <<<NUM
+function nombre($nom,$titre,$unit,$min,$max,$bulle,$donnees){
+    $dd=$donnees[$nom];
+    echo <<<MMU
     <LABEL for ="$nom">$titre</LABEL>
     <input type="NUMBER" name= "$nom"  id= "$nom" 
        min= "$min"  max= "$max" 
        class="nb" title= "$bulle"  value= "$dd" >&nbsp;$unit
     <BR>
-NUM;
-}
+MMU;
+    }
 //
 // date via la fonction ad hoc
 //
-function ndate($nom,$titre,$dd=""){
+function ndate($nom,$titre,$donnees){
+    $dd = $donnees[$nom];
 echo <<<DAT
     <LABEL for ="$nom">$titre</LABEL>
     <input type="DATE" name="$nom" id="$nom" value="$dd">
@@ -107,7 +129,7 @@ DAT;
 function boxs($nom,$titre){
 echo <<<BOX
     <LABEL for= "$nom">$titre</LABEL>
-    <input type="CHECKBOX" name= "$nom"  id= "$nom" >
+    <input type="CHECKBOX" name= "$nom"  id= "$nom" value="oui">
     </BR>
 BOX;
 }

@@ -2,37 +2,47 @@
 $titre ="Statut à six mois";
 $form=1;
 include('debut.php');
+$reponse = $base->query("SELECT * FROM mois6 WHERE codepat='$codepat'");
 echo "<SECTION>";
-debutform("postmois6.php");
+debutform("posttout.php?table=mois6&suite=mois12");
 gdlegend("Six mois");
-?>
-<LABEL for ="m6.statut">Statut à six mois</LABEL>
-<input type="RADIO" Name="m6.statut" id ="m6.statut" value="vivant"> Vivant&nbsp;
-<input type="RADIO" Name="m6.statut" id ="m6.statut" value="décédé"> décédé</BR>
-<?php
-liste("m6.lieu","Lieu de vie","lieu",$base);
+liste("m6_contact","Contact","contact",$base, $donnees);
 sautl();
-ouinon("m6.trach","Trachéotomie");
-ouinon("m6.gstomie","Gastrostomie");
-ouinon("m6.su","Sonde urinaire");
-ouinon("m6.vent","Ventilation");
-ouinon("m6.vni","VNI");
+echo '<LABEL for ="m6_statut">Statut à six mois</LABEL>';
+$dd = $donnees['sort_statut'];
+echo <<<STA
+<input type="RADIO" Name="sort_statut" id ="sort_statut" value="vivant"
+STA;
+if ($dd == "vivant"): echo "checked";  endif;
+echo <<<STB
+> Vivant&nbsp;
+<input type="RADIO" Name="sort_statut" id ="sort_statut" value="décédé"
+STB;
+if ($dd == "décédé"): echo "checked";  endif;
+echo <<<STC
+> décédé</BR>
+STC;
+liste("m6_lieu","Lieu de vie","lieu",$base, $donnees);
 sautl();
-nombre("m6.csg","Score de Glasgow","","3","15","");
-nombre("m6.crsr","CRS R","","0","23","");
-nombre("m6.whim","WHIM","","0","","");
-nombre("m6.mif","MIF","","0","7","");
-nombre("m6.drs","DRS","","0","29","");
-nombre("m6.gose","GOSE","","1","","");
-//nombre("m6.barthel","BARTHEL","","0","100","");
+ouinon("m6_trach","Trachéotomie", $donnees);
+ouinon("m6_gstomie","Gastrostomie", $donnees);
+ouinon("m6_su","Sonde urinaire", $donnees);
+ouinon("m6_vent","Ventilation", $donnees);
+ouinon("m6_vni","VNI", $donnees);
 sautl();
-nombre("m6.asia.mot","ASIA - Plus mauvais score moteur","","0","100","");
-nombre("m6.asia.ssb","ASIA - Plus mauvais score sensitif","","0","112","");
-liste("m6.asia.anom","ASIA - Échelle d'anomalie","abcde",$base);
+nombre("m6_poids","Poids","Kg","15","300","", $donnees);
+finf();
+gdlegend("Score EQ-5D", $donnees);
+liste("m6_eq5mob","Mobilité","EQ5mob",$base, $donnees);
+liste("m6_eq5aut","Autonomie de la personne","EQ5aut",$base, $donnees);
+liste("m6_eq5act","Activités courantes","EQ5act",$base, $donnees);
+liste("m6_eq5dou","Douleurs/gêne","EQ5dou",$base, $donnees);
+liste("m6_eq5anx","Anxiété/Dépression","EQ5anx",$base, $donnees);
 sautl();
-nombre("m6.poids","Poids","Kg","15","300","");
+nombre("m6_eq5eva", "Score EVA - État de santé", "0 - 100", "0","100", "", $donnees);
 finf();
 finq();
 echo "</SECTION>";
 include('pied.php');
 ?>
+aa
